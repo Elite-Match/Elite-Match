@@ -4,345 +4,699 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Product Message Center</title>
+<title>Customer Support | আপনার ব্যবসার নাম</title>
+
+<meta name="description"
+content="Product information and customer support portal. Contact us for product details, pricing and ordering information.">
 
 <style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
-body{
-    font-family:Arial, Helvetica, sans-serif;
-    background:#f5f7fb;
-    color:#222;
+html{
+    scroll-behavior:smooth;
 }
 
-/* =========================
-   RAINBOW TOP BAR
-========================= */
+body{
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
 
-.rainbow{
-    height:7px;
-    width:100%;
+    background:#f4f7fb;
+    color:#172033;
+    min-height:100vh;
+}
+
+
+/* =====================================================
+   TOP ACCENT
+===================================================== */
+
+.top-line{
+    height:4px;
+
     background:linear-gradient(
         90deg,
-        #ff0000 0%,
-        #ff7f00 16%,
-        #ffd900 32%,
-        #00b83f 48%,
-        #0066ff 64%,
-        #4b0082 80%,
-        #8b00ff 100%
+        #ff3b30,
+        #ff9500,
+        #ffcc00,
+        #34c759,
+        #007aff,
+        #5856d6,
+        #af52de
     );
 }
 
-/* =========================
-   HEADER
-========================= */
 
-header{
-    background:#ffffff;
-    padding:18px 20px;
-    box-shadow:0 2px 12px rgba(0,0,0,.08);
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header{
+    background:rgba(255,255,255,.96);
+    border-bottom:1px solid #e7ebf2;
+
     position:sticky;
     top:0;
+
     z-index:100;
+
+    backdrop-filter:blur(12px);
 }
 
 .header-inner{
-    max-width:900px;
+    max-width:850px;
     margin:auto;
+
+    min-height:68px;
+
+    padding:0 20px;
+
     display:flex;
     align-items:center;
     justify-content:space-between;
-    gap:15px;
 }
 
-.logo{
-    font-size:22px;
-    font-weight:bold;
-    background:linear-gradient(
-        90deg,
-        #ff0000,
-        #ff7f00,
-        #00a83b,
-        #0066ff,
-        #8b00ff
-    );
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
+
+/* Brand */
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:11px;
 }
 
-.status{
-    color:#16a05d;
-    font-size:13px;
-    font-weight:bold;
-}
+.brand-icon{
+    width:42px;
+    height:42px;
 
-.status-dot{
-    display:inline-block;
-    width:9px;
-    height:9px;
-    background:#16a05d;
-    border-radius:50%;
-    margin-right:5px;
-}
+    border-radius:12px;
 
-/* =========================
-   MAIN
-========================= */
-
-.container{
-    max-width:850px;
-    margin:35px auto;
-    padding:0 18px;
-}
-
-/* =========================
-   WELCOME
-========================= */
-
-.welcome{
-    background:#fff;
-    border-radius:18px;
-    padding:30px 25px;
-    text-align:center;
-    box-shadow:0 5px 25px rgba(0,0,0,.08);
-    margin-bottom:20px;
-}
-
-.welcome h1{
-    font-size:30px;
-    margin-bottom:12px;
-}
-
-.welcome p{
-    color:#666;
-    line-height:1.7;
-}
-
-/* =========================
-   PRODUCT
-========================= */
-
-.product{
-    background:#fff;
-    border-radius:18px;
-    padding:25px;
-    box-shadow:0 5px 25px rgba(0,0,0,.08);
-    margin-bottom:20px;
-}
-
-.product-image{
-    width:100%;
-    height:230px;
-    border-radius:14px;
     background:linear-gradient(
         135deg,
-        #ff0000,
-        #ff7f00,
-        #ffd900,
-        #00b83f,
-        #0066ff,
-        #4b0082,
-        #8b00ff
+        #1677ff,
+        #005ce6
     );
+
+    color:white;
+
     display:flex;
     align-items:center;
     justify-content:center;
-    color:#fff;
-    font-size:40px;
-    font-weight:bold;
-    margin-bottom:20px;
+
+    font-weight:800;
+    font-size:17px;
+
+    box-shadow:
+        0 5px 14px
+        rgba(0,122,255,.20);
 }
 
-.product h2{
-    margin-bottom:10px;
-}
-
-.product p{
-    color:#666;
-    line-height:1.7;
-}
-
-.price{
-    font-size:28px;
-    font-weight:bold;
-    color:#0066ff;
-    margin-top:15px;
-}
-
-/* =========================
-   MESSAGE PORTAL
-========================= */
-
-.message-box{
-    background:#fff;
-    border-radius:18px;
-    padding:25px;
-    box-shadow:0 5px 25px rgba(0,0,0,.08);
-}
-
-.message-box h2{
-    margin-bottom:8px;
-}
-
-.sub{
-    color:#777;
-    font-size:14px;
-    line-height:1.6;
-    margin-bottom:20px;
-}
-
-label{
-    display:block;
-    font-weight:bold;
-    margin:13px 0 7px;
-}
-
-input,
-textarea{
-    width:100%;
-    border:1px solid #ddd;
-    border-radius:10px;
-    padding:13px;
-    font-size:15px;
-    font-family:inherit;
-    outline:none;
-    transition:.2s;
-}
-
-input:focus,
-textarea:focus{
-    border-color:#229ED9;
-    box-shadow:0 0 0 3px rgba(34,158,217,.10);
-}
-
-textarea{
-    min-height:120px;
-    resize:vertical;
-}
-
-/* =========================
-   QUICK QUESTIONS
-========================= */
-
-.quick{
-    margin-top:20px;
-}
-
-.quick-title{
-    font-weight:bold;
-    margin-bottom:10px;
-}
-
-.quick-buttons{
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px;
-}
-
-.quick-buttons button{
-    background:#fff;
-    border:1px solid #ddd;
-    padding:9px 13px;
-    border-radius:20px;
-    cursor:pointer;
-    font-size:13px;
-    transition:.2s;
-}
-
-.quick-buttons button:hover{
-    color:#229ED9;
-    border-color:#229ED9;
-}
-
-/* =========================
-   TELEGRAM BUTTON
-========================= */
-
-.telegram-btn{
-    width:100%;
-    display:block;
-    margin-top:20px;
-    padding:15px;
-    border:0;
-    border-radius:11px;
-    background:#229ED9;
-    color:#fff;
-    text-decoration:none;
-    text-align:center;
+.brand-name{
     font-size:16px;
-    font-weight:bold;
-    cursor:pointer;
-    transition:.2s;
+    font-weight:700;
+
+    color:#162033;
 }
 
-.telegram-btn:hover{
-    background:#168dcc;
-    transform:translateY(-2px);
+.brand-sub{
+    font-size:11px;
+    color:#7d8798;
+
+    margin-top:2px;
 }
 
-/* =========================
-   FOOTER
-========================= */
 
-footer{
-    text-align:center;
-    padding:30px 15px;
-    color:#888;
+/* Online */
+
+.online{
+    display:flex;
+    align-items:center;
+    gap:6px;
+
+    color:#21a366;
+
+    font-size:12px;
+    font-weight:600;
+}
+
+.online-dot{
+    width:8px;
+    height:8px;
+
+    border-radius:50%;
+
+    background:#24c16a;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(36,193,106,.10);
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+.main{
+    max-width:850px;
+    margin:auto;
+
+    padding:
+        28px 18px
+        115px;
+}
+
+
+/* =====================================================
+   WELCOME CARD
+===================================================== */
+
+.welcome{
+    background:#ffffff;
+
+    border:1px solid #e8edf4;
+
+    border-radius:20px;
+
+    padding:27px 24px;
+
+    box-shadow:
+        0 8px 30px
+        rgba(30,50,80,.06);
+
+    margin-bottom:15px;
+}
+
+.welcome-label{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+
+    padding:6px 10px;
+
+    background:#edf6ff;
+
+    color:#0877e8;
+
+    border-radius:20px;
+
+    font-size:11px;
+    font-weight:700;
+
+    margin-bottom:13px;
+}
+
+.welcome h1{
+    font-size:27px;
+
+    line-height:1.25;
+
+    letter-spacing:-.4px;
+
+    margin-bottom:10px;
+}
+
+.welcome p{
+    color:#687386;
+
+    font-size:14px;
+
+    line-height:1.75;
+}
+
+
+/* =====================================================
+   PRODUCT INFORMATION
+===================================================== */
+
+.product-card{
+    background:#ffffff;
+
+    border:1px solid #e8edf4;
+
+    border-radius:20px;
+
+    padding:24px;
+
+    box-shadow:
+        0 8px 30px
+        rgba(30,50,80,.06);
+
+    margin-bottom:15px;
+}
+
+.card-title{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    margin-bottom:15px;
+}
+
+.card-icon{
+    width:38px;
+    height:38px;
+
+    border-radius:11px;
+
+    background:#f0f6ff;
+
+    color:#0877e8;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:17px;
+}
+
+.card-title h2{
+    font-size:18px;
+}
+
+.product-description{
+    color:#606b7c;
+
+    font-size:14px;
+
+    line-height:1.8;
+}
+
+
+/* Feature boxes */
+
+.features{
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:10px;
+
+    margin-top:18px;
+}
+
+.feature{
+    background:#f8fafc;
+
+    border:1px solid #edf0f5;
+
+    border-radius:12px;
+
+    padding:13px;
+}
+
+.feature strong{
+    display:block;
+
     font-size:13px;
+
+    margin-bottom:4px;
 }
 
-/* =========================
+.feature span{
+    color:#7a8494;
+
+    font-size:11px;
+}
+
+
+/* =====================================================
+   PRICE / ORDER INFO
+===================================================== */
+
+.info-box{
+    margin-top:17px;
+
+    padding:15px;
+
+    border-radius:13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f4f9ff,
+            #f9fbff
+        );
+
+    border:1px solid #dcecff;
+}
+
+.info-box-title{
+    font-size:12px;
+    color:#687386;
+
+    margin-bottom:5px;
+}
+
+.info-box-text{
+    font-size:14px;
+    font-weight:700;
+
+    color:#146ddd;
+}
+
+
+/* =====================================================
+   CHAT STYLE MESSAGE
+===================================================== */
+
+.chat-card{
+    background:#ffffff;
+
+    border:1px solid #e8edf4;
+
+    border-radius:20px;
+
+    padding:24px;
+
+    box-shadow:
+        0 8px 30px
+        rgba(30,50,80,.06);
+}
+
+.chat-header{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    margin-bottom:20px;
+}
+
+.chat-avatar{
+    width:42px;
+    height:42px;
+
+    border-radius:50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1684ff,
+            #0066d6
+        );
+
+    color:white;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-weight:700;
+}
+
+.chat-name{
+    font-size:14px;
+    font-weight:700;
+}
+
+.chat-status{
+    color:#20a464;
+    font-size:11px;
+    margin-top:2px;
+}
+
+
+/* Message */
+
+.message{
+    background:#f1f5f9;
+
+    border-radius:
+        5px 17px 17px 17px;
+
+    padding:15px 16px;
+
+    max-width:92%;
+
+    color:#515c6d;
+
+    font-size:14px;
+
+    line-height:1.75;
+}
+
+.message strong{
+    color:#202a3a;
+}
+
+
+/* =====================================================
+   TRUST
+===================================================== */
+
+.trust{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:9px;
+
+    margin-top:18px;
+}
+
+.trust-item{
+    text-align:center;
+
+    padding:13px 7px;
+
+    border:1px solid #edf0f4;
+
+    border-radius:12px;
+
+    background:#fff;
+}
+
+.trust-icon{
+    font-size:18px;
+
+    margin-bottom:5px;
+}
+
+.trust-item strong{
+    display:block;
+
+    font-size:11px;
+}
+
+.trust-item span{
+    color:#8a93a2;
+
+    font-size:9px;
+}
+
+
+/* =====================================================
+   FIXED CONTACT BAR
+===================================================== */
+
+.contact-bar{
+    position:fixed;
+
+    left:0;
+    right:0;
+    bottom:0;
+
+    z-index:90;
+
+    background:
+        rgba(255,255,255,.94);
+
+    border-top:1px solid #e2e7ee;
+
+    backdrop-filter:blur(15px);
+
+    padding:
+        12px 16px
+        calc(12px + env(safe-area-inset-bottom));
+}
+
+.contact-inner{
+    max-width:850px;
+    margin:auto;
+}
+
+.contact-button{
+    width:100%;
+
+    border:0;
+
+    border-radius:13px;
+
+    padding:15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #229ed9,
+            #168bd0
+        );
+
+    color:#ffffff;
+
+    text-decoration:none;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:9px;
+
+    font-size:15px;
+    font-weight:700;
+
+    box-shadow:
+        0 7px 20px
+        rgba(34,158,217,.25);
+
+    transition:
+        transform .2s,
+        box-shadow .2s;
+}
+
+.contact-button:hover{
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(34,158,217,.30);
+}
+
+.telegram-icon{
+    font-size:19px;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer{
+    text-align:center;
+
+    color:#9aa3b1;
+
+    font-size:10px;
+
+    margin-top:22px;
+}
+
+
+/* =====================================================
    MOBILE
-========================= */
+===================================================== */
 
 @media(max-width:600px){
 
     .header-inner{
-        flex-direction:column;
-        text-align:center;
+        padding:0 15px;
+    }
+
+    .brand-name{
+        font-size:15px;
+    }
+
+    .main{
+        padding:
+            20px 13px
+            105px;
+    }
+
+    .welcome{
+        padding:23px 19px;
     }
 
     .welcome h1{
-        font-size:25px;
+        font-size:23px;
     }
 
-    .product-image{
-        height:180px;
-        font-size:32px;
+    .product-card,
+    .chat-card{
+        padding:20px 17px;
     }
 
-    .container{
-        margin-top:22px;
+    .features{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .trust{
+        grid-template-columns:
+            repeat(3,1fr);
+    }
+
+    .message{
+        max-width:96%;
     }
 }
+
 </style>
 </head>
 
 
 <body>
 
-<!-- Rainbow -->
-<div class="rainbow"></div>
+
+<!-- =====================================================
+     RAINBOW TOP
+===================================================== -->
+
+<div class="top-line"></div>
 
 
-<!-- Header -->
-<header>
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header">
 
     <div class="header-inner">
 
-        <div class="logo">
-            🌈 Product Message Center
+        <div class="brand">
+
+            <div class="brand-icon">
+                S
+            </div>
+
+            <div>
+
+                <!-- CHANGE BUSINESS NAME HERE -->
+
+                <div class="brand-name">
+                    আপনার ব্যবসার নাম
+                </div>
+
+                <div class="brand-sub">
+                    Customer Support
+                </div>
+
+            </div>
+
         </div>
 
-        <div class="status">
-            <span class="status-dot"></span>
+
+        <div class="online">
+
+            <span class="online-dot"></span>
+
             Online
+
         </div>
 
     </div>
@@ -350,269 +704,295 @@ footer{
 </header>
 
 
-<!-- Main -->
-<main class="container">
+
+<!-- =====================================================
+     MAIN CONTENT
+===================================================== -->
+
+<main class="main">
 
 
     <!-- Welcome -->
+
     <section class="welcome">
+
+        <div class="welcome-label">
+            ✓ Customer Information
+        </div>
 
         <h1>
             আপনাকে স্বাগতম 👋
         </h1>
 
         <p>
-            Product সম্পর্কে জানতে নিচের তথ্য দেখুন।
-            কোনো প্রশ্ন থাকলে সরাসরি Telegram-এ আমাদের
-            Message করুন।
+            আমাদের Product সম্পর্কে বিস্তারিত জানতে
+            নিচের তথ্যগুলো দেখুন। কোনো প্রশ্ন থাকলে
+            সরাসরি আমাদের সাথে যোগাযোগ করতে পারেন।
         </p>
 
     </section>
 
 
-    <!-- Product -->
-    <section class="product">
 
-        <!--
-        এখানে চাইলে Product-এর ছবি দিতে পারো।
-        বর্তমানে demo rainbow box আছে।
-        -->
+    <!-- Product Description -->
 
-        <div class="product-image">
-            YOUR PRODUCT
-        </div>
+    <section class="product-card">
 
-        <h2>
-            আপনার Product Name
-        </h2>
+        <div class="card-title">
 
-        <p>
-            এখানে আপনার product সম্পর্কে বিস্তারিত লিখুন।
-            Product-এর সুবিধা, quality, ব্যবহার এবং অন্যান্য
-            গুরুত্বপূর্ণ তথ্য এখানে দিতে পারবেন।
-        </p>
-
-        <div class="price">
-            ৳ 999
-        </div>
-
-    </section>
-
-
-    <!-- Message Portal -->
-    <section class="message-box">
-
-        <h2>
-            ✈️ Telegram-এ Message করুন
-        </h2>
-
-        <p class="sub">
-            আপনার নাম এবং প্রশ্ন লিখুন। তারপর নিচের
-            Telegram button-এ চাপুন।
-        </p>
-
-
-        <!-- Name -->
-        <label for="clientName">
-            আপনার নাম
-        </label>
-
-        <input
-            type="text"
-            id="clientName"
-            placeholder="আপনার নাম লিখুন"
-        >
-
-
-        <!-- Message -->
-        <label for="clientMessage">
-            আপনার Message
-        </label>
-
-        <textarea
-            id="clientMessage"
-            placeholder="Product সম্পর্কে কী জানতে চান?"
-        ></textarea>
-
-
-        <!-- Quick Questions -->
-        <div class="quick">
-
-            <div class="quick-title">
-                দ্রুত প্রশ্ন:
+            <div class="card-icon">
+                ✦
             </div>
 
-            <div class="quick-buttons">
+            <h2>
+                Product সম্পর্কে
+            </h2>
 
-                <button onclick="quickMessage('Product-এর দাম কত?')">
-                    💰 দাম কত?
-                </button>
+        </div>
 
-                <button onclick="quickMessage('Product সম্পর্কে বিস্তারিত জানতে চাই।')">
-                    ℹ️ বিস্তারিত
-                </button>
 
-                <button onclick="quickMessage('Delivery charge কত?')">
-                    🚚 Delivery
-                </button>
+        <!-- CHANGE PRODUCT DESCRIPTION HERE -->
 
-                <button onclick="quickMessage('কীভাবে order করব?')">
-                    🛒 Order
-                </button>
+        <p class="product-description">
+
+            আমাদের Product উন্নত মানের উপকরণ দিয়ে
+            তৈরি এবং দৈনন্দিন ব্যবহারের জন্য উপযোগী।
+            আমরা Customer satisfaction এবং quality
+            service-কে গুরুত্ব দিয়ে থাকি।
+
+            <br><br>
+
+            Product-এর বিস্তারিত তথ্য, মূল্য, delivery
+            এবং order process সম্পর্কে জানতে আমাদের
+            সাথে যোগাযোগ করুন।
+
+        </p>
+
+
+        <!-- Features -->
+
+        <div class="features">
+
+            <div class="feature">
+
+                <strong>✓ ভালো Quality</strong>
+
+                <span>
+                    Quality-focused product
+                </span>
+
+            </div>
+
+
+            <div class="feature">
+
+                <strong>✓ সহজ ব্যবহার</strong>
+
+                <span>
+                    User friendly
+                </span>
+
+            </div>
+
+
+            <div class="feature">
+
+                <strong>✓ Customer Support</strong>
+
+                <span>
+                    দ্রুত যোগাযোগ
+                </span>
+
+            </div>
+
+
+            <div class="feature">
+
+                <strong>✓ Delivery</strong>
+
+                <span>
+                    Delivery available
+                </span>
 
             </div>
 
         </div>
 
 
-        <!-- Telegram -->
-        <a
-            href="#"
-            id="telegramButton"
-            class="telegram-btn"
-            onclick="sendTelegram(event)"
-        >
-            ✈️ Telegram-এ Message করুন
-        </a>
+        <!-- Information -->
+
+        <div class="info-box">
+
+            <div class="info-box-title">
+                Product information
+            </div>
+
+            <div class="info-box-text">
+                মূল্য ও বিস্তারিত জানতে যোগাযোগ করুন
+            </div>
+
+        </div>
 
     </section>
+
+
+
+    <!-- Chat -->
+
+    <section class="chat-card">
+
+        <div class="chat-header">
+
+            <div class="chat-avatar">
+                S
+            </div>
+
+            <div>
+
+                <div class="chat-name">
+                    Customer Support
+                </div>
+
+                <div class="chat-status">
+                    ● Usually replies quickly
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="message">
+
+            আসসালামু আলাইকুম। 👋
+
+            <br><br>
+
+            Product-এর দাম, delivery, availability,
+            order অথবা অন্য কোনো তথ্য জানতে চাইলে
+            নিচের button ব্যবহার করে আমাদের সাথে
+            সরাসরি যোগাযোগ করুন।
+
+            <br><br>
+
+            <strong>
+                আমরা আপনার প্রশ্নের উত্তর দিতে
+                আনন্দিত।
+            </strong>
+
+        </div>
+
+
+        <!-- Trust information -->
+
+        <div class="trust">
+
+            <div class="trust-item">
+
+                <div class="trust-icon">
+                    🔒
+                </div>
+
+                <strong>
+                    Secure
+                </strong>
+
+                <span>
+                    Safe contact
+                </span>
+
+            </div>
+
+
+            <div class="trust-item">
+
+                <div class="trust-icon">
+                    💬
+                </div>
+
+                <strong>
+                    Support
+                </strong>
+
+                <span>
+                    Direct chat
+                </span>
+
+            </div>
+
+
+            <div class="trust-item">
+
+                <div class="trust-icon">
+                    ⚡
+                </div>
+
+                <strong>
+                    Quick Reply
+                </strong>
+
+                <span>
+                    Fast response
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <div class="footer">
+
+        © 2026 আপনার ব্যবসার নাম · Customer Support
+
+    </div>
+
 
 </main>
 
 
-<footer>
-    © 2026 Your Business — All Rights Reserved
-</footer>
 
+<!-- =====================================================
+     TELEGRAM CONTACT BAR
+===================================================== -->
 
-<script>
+<div class="contact-bar">
 
-/* ==========================================
-   TELEGRAM SETTINGS
-==========================================
+    <div class="contact-inner">
 
-   এখানে শুধু তোমার Telegram username বসাও।
+        <!--
+        ================================================
+        IMPORTANT:
+        YOUR_TELEGRAM_USERNAME-এর জায়গায়
+        তোমার Telegram username বসাও।
 
-   Example:
-   const TELEGRAM_USERNAME = "myshop123";
+        Example:
+        https://t.me/myshop123
 
-   @ চিহ্ন দেওয়ার দরকার নেই।
-========================================== */
+        @ চিহ্ন ব্যবহার করবে না।
+        ================================================
+        -->
 
-const TELEGRAM_USERNAME = "YOUR_TELEGRAM_USERNAME";
+        <a
+            class="contact-button"
+            href="https://t.me/YOUR_TELEGRAM_USERNAME"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
 
+            <span class="telegram-icon">
+                ✈
+            </span>
 
-/* ==========================================
-   QUICK MESSAGE
-========================================== */
+            আমাদের সাথে যোগাযোগ করুন
 
-function quickMessage(text){
+        </a>
 
-    document.getElementById("clientMessage").value = text;
+    </div>
 
-}
+</div>
 
-
-/* ==========================================
-   TELEGRAM BUTTON
-========================================== */
-
-function sendTelegram(event){
-
-    event.preventDefault();
-
-    const name =
-        document.getElementById("clientName")
-        .value
-        .trim();
-
-    const message =
-        document.getElementById("clientMessage")
-        .value
-        .trim();
-
-
-    if(!name){
-
-        alert("দয়া করে আপনার নাম লিখুন।");
-
-        document.getElementById("clientName").focus();
-
-        return;
-    }
-
-
-    if(!message){
-
-        alert("দয়া করে আপনার Message লিখুন।");
-
-        document.getElementById("clientMessage").focus();
-
-        return;
-    }
-
-
-    /*
-      Telegram profile/chat open হবে।
-
-      Browser থেকে সাধারণ Telegram profile link-এ
-      automatically typed message পাঠানো যায় না।
-
-      তাই client-এর message clipboard-এ copy করা হচ্ছে।
-    */
-
-    const finalMessage =
-        "নাম: " + name +
-        "\n\n" +
-        "Message: " + message;
-
-
-    /*
-      Message copy
-    */
-
-    if(navigator.clipboard){
-
-        navigator.clipboard
-        .writeText(finalMessage)
-        .then(function(){
-
-            openTelegram();
-
-        })
-        .catch(function(){
-
-            openTelegram();
-
-        });
-
-    }else{
-
-        openTelegram();
-
-    }
-
-}
-
-
-/* ==========================================
-   OPEN TELEGRAM
-========================================== */
-
-function openTelegram(){
-
-    const telegramURL =
-        "https://t.me/" +
-        TELEGRAM_USERNAME;
-
-    window.open(
-        telegramURL,
-        "_blank"
-    );
-
-}
-
-</script>
 
 </body>
 </html>
