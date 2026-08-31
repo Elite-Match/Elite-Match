@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Rainbow 7 Pages</title>
+<title>Product Message Center</title>
 
 <style>
 *{
@@ -14,296 +14,604 @@
 }
 
 body{
-    font-family:Arial, sans-serif;
-    background:#f5f5f5;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f5f7fb;
     color:#222;
-    min-height:100vh;
 }
 
-/* Rainbow top line */
+/* =========================
+   RAINBOW TOP BAR
+========================= */
+
 .rainbow{
     height:7px;
     width:100%;
     background:linear-gradient(
         90deg,
+        #ff0000 0%,
+        #ff7f00 16%,
+        #ffd900 32%,
+        #00b83f 48%,
+        #0066ff 64%,
+        #4b0082 80%,
+        #8b00ff 100%
+    );
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+    background:#ffffff;
+    padding:18px 20px;
+    box-shadow:0 2px 12px rgba(0,0,0,.08);
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.header-inner{
+    max-width:900px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:bold;
+    background:linear-gradient(
+        90deg,
         #ff0000,
         #ff7f00,
-        #ffff00,
-        #00c853,
+        #00a83b,
+        #0066ff,
+        #8b00ff
+    );
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+}
+
+.status{
+    color:#16a05d;
+    font-size:13px;
+    font-weight:bold;
+}
+
+.status-dot{
+    display:inline-block;
+    width:9px;
+    height:9px;
+    background:#16a05d;
+    border-radius:50%;
+    margin-right:5px;
+}
+
+/* =========================
+   MAIN
+========================= */
+
+.container{
+    max-width:850px;
+    margin:35px auto;
+    padding:0 18px;
+}
+
+/* =========================
+   WELCOME
+========================= */
+
+.welcome{
+    background:#fff;
+    border-radius:18px;
+    padding:30px 25px;
+    text-align:center;
+    box-shadow:0 5px 25px rgba(0,0,0,.08);
+    margin-bottom:20px;
+}
+
+.welcome h1{
+    font-size:30px;
+    margin-bottom:12px;
+}
+
+.welcome p{
+    color:#666;
+    line-height:1.7;
+}
+
+/* =========================
+   PRODUCT
+========================= */
+
+.product{
+    background:#fff;
+    border-radius:18px;
+    padding:25px;
+    box-shadow:0 5px 25px rgba(0,0,0,.08);
+    margin-bottom:20px;
+}
+
+.product-image{
+    width:100%;
+    height:230px;
+    border-radius:14px;
+    background:linear-gradient(
+        135deg,
+        #ff0000,
+        #ff7f00,
+        #ffd900,
+        #00b83f,
         #0066ff,
         #4b0082,
         #8b00ff
     );
-}
-
-/* Header */
-header{
-    background:#fff;
-    padding:18px 20px;
-    text-align:center;
-    box-shadow:0 2px 10px rgba(0,0,0,.08);
-}
-
-.logo{
-    font-size:27px;
-    font-weight:bold;
-    background:linear-gradient(
-        90deg,
-        red,
-        orange,
-        #e6d500,
-        green,
-        blue,
-        indigo,
-        violet
-    );
-    -webkit-background-clip:text;
-    color:transparent;
-}
-
-/* Navigation */
-nav{
     display:flex;
+    align-items:center;
     justify-content:center;
+    color:#fff;
+    font-size:40px;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+.product h2{
+    margin-bottom:10px;
+}
+
+.product p{
+    color:#666;
+    line-height:1.7;
+}
+
+.price{
+    font-size:28px;
+    font-weight:bold;
+    color:#0066ff;
+    margin-top:15px;
+}
+
+/* =========================
+   MESSAGE PORTAL
+========================= */
+
+.message-box{
+    background:#fff;
+    border-radius:18px;
+    padding:25px;
+    box-shadow:0 5px 25px rgba(0,0,0,.08);
+}
+
+.message-box h2{
+    margin-bottom:8px;
+}
+
+.sub{
+    color:#777;
+    font-size:14px;
+    line-height:1.6;
+    margin-bottom:20px;
+}
+
+label{
+    display:block;
+    font-weight:bold;
+    margin:13px 0 7px;
+}
+
+input,
+textarea{
+    width:100%;
+    border:1px solid #ddd;
+    border-radius:10px;
+    padding:13px;
+    font-size:15px;
+    font-family:inherit;
+    outline:none;
+    transition:.2s;
+}
+
+input:focus,
+textarea:focus{
+    border-color:#229ED9;
+    box-shadow:0 0 0 3px rgba(34,158,217,.10);
+}
+
+textarea{
+    min-height:120px;
+    resize:vertical;
+}
+
+/* =========================
+   QUICK QUESTIONS
+========================= */
+
+.quick{
+    margin-top:20px;
+}
+
+.quick-title{
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.quick-buttons{
+    display:flex;
     flex-wrap:wrap;
     gap:8px;
-    padding:15px;
-    background:#fff;
 }
 
-nav button{
+.quick-buttons button{
+    background:#fff;
+    border:1px solid #ddd;
+    padding:9px 13px;
+    border-radius:20px;
+    cursor:pointer;
+    font-size:13px;
+    transition:.2s;
+}
+
+.quick-buttons button:hover{
+    color:#229ED9;
+    border-color:#229ED9;
+}
+
+/* =========================
+   TELEGRAM BUTTON
+========================= */
+
+.telegram-btn{
+    width:100%;
+    display:block;
+    margin-top:20px;
+    padding:15px;
     border:0;
-    padding:10px 16px;
-    border-radius:8px;
-    color:white;
+    border-radius:11px;
+    background:#229ED9;
+    color:#fff;
+    text-decoration:none;
+    text-align:center;
+    font-size:16px;
     font-weight:bold;
     cursor:pointer;
     transition:.2s;
 }
 
-nav button:hover{
+.telegram-btn:hover{
+    background:#168dcc;
     transform:translateY(-2px);
-    opacity:.85;
 }
 
-/* Seven colors */
-.red{background:#ff0000;}
-.orange{background:#ff7f00;}
-.yellow{background:#d5b900;}
-.green{background:#00a83b;}
-.blue{background:#0066ff;}
-.indigo{background:#4b0082;}
-.violet{background:#8b00ff;}
+/* =========================
+   FOOTER
+========================= */
 
-/* Pages */
-.page{
-    display:none;
-    max-width:900px;
-    margin:30px auto;
-    padding:25px;
-}
-
-.page.active{
-    display:block;
-}
-
-.card{
-    background:#fff;
-    border-radius:15px;
-    padding:35px 25px;
-    text-align:center;
-    box-shadow:0 5px 25px rgba(0,0,0,.10);
-}
-
-.card h1{
-    margin-bottom:15px;
-}
-
-.card p{
-    color:#666;
-    line-height:1.7;
-}
-
-.page-btn{
-    margin-top:25px;
-    border:0;
-    padding:12px 25px;
-    color:#fff;
-    border-radius:8px;
-    cursor:pointer;
-    font-weight:bold;
-}
-
-/* Individual page colors */
-#page1 .card{
-    border-top:6px solid #ff0000;
-}
-#page2 .card{
-    border-top:6px solid #ff7f00;
-}
-#page3 .card{
-    border-top:6px solid #d5b900;
-}
-#page4 .card{
-    border-top:6px solid #00a83b;
-}
-#page5 .card{
-    border-top:6px solid #0066ff;
-}
-#page6 .card{
-    border-top:6px solid #4b0082;
-}
-#page7 .card{
-    border-top:6px solid #8b00ff;
-}
-
-/* Footer */
 footer{
     text-align:center;
-    padding:25px;
-    color:#777;
+    padding:30px 15px;
+    color:#888;
+    font-size:13px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+    .header-inner{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .welcome h1{
+        font-size:25px;
+    }
+
+    .product-image{
+        height:180px;
+        font-size:32px;
+    }
+
+    .container{
+        margin-top:22px;
+    }
 }
 </style>
 </head>
 
+
 <body>
 
+<!-- Rainbow -->
 <div class="rainbow"></div>
 
+
+<!-- Header -->
 <header>
-    <div class="logo">Rainbow Website</div>
+
+    <div class="header-inner">
+
+        <div class="logo">
+            🌈 Product Message Center
+        </div>
+
+        <div class="status">
+            <span class="status-dot"></span>
+            Online
+        </div>
+
+    </div>
+
 </header>
 
-<nav>
-    <button class="red" onclick="showPage(1)">Page 1</button>
-    <button class="orange" onclick="showPage(2)">Page 2</button>
-    <button class="yellow" onclick="showPage(3)">Page 3</button>
-    <button class="green" onclick="showPage(4)">Page 4</button>
-    <button class="blue" onclick="showPage(5)">Page 5</button>
-    <button class="indigo" onclick="showPage(6)">Page 6</button>
-    <button class="violet" onclick="showPage(7)">Page 7</button>
-</nav>
+
+<!-- Main -->
+<main class="container">
 
 
-<!-- PAGE 1 -->
-<section id="page1" class="page active">
-    <div class="card">
-        <h1 style="color:#ff0000;">Page 1</h1>
+    <!-- Welcome -->
+    <section class="welcome">
+
+        <h1>
+            আপনাকে স্বাগতম 👋
+        </h1>
+
         <p>
-            এটি প্রথম পেজ। এখানে তোমার প্রথম পেজের
-            existing content বসাতে পারো।
+            Product সম্পর্কে জানতে নিচের তথ্য দেখুন।
+            কোনো প্রশ্ন থাকলে সরাসরি Telegram-এ আমাদের
+            Message করুন।
         </p>
-        <button class="page-btn red" onclick="showPage(2)">
-            Next Page
-        </button>
-    </div>
-</section>
+
+    </section>
 
 
-<!-- PAGE 2 -->
-<section id="page2" class="page">
-    <div class="card">
-        <h1 style="color:#ff7f00;">Page 2</h1>
+    <!-- Product -->
+    <section class="product">
+
+        <!--
+        এখানে চাইলে Product-এর ছবি দিতে পারো।
+        বর্তমানে demo rainbow box আছে।
+        -->
+
+        <div class="product-image">
+            YOUR PRODUCT
+        </div>
+
+        <h2>
+            আপনার Product Name
+        </h2>
+
         <p>
-            এটি দ্বিতীয় পেজ। Orange rainbow theme.
+            এখানে আপনার product সম্পর্কে বিস্তারিত লিখুন।
+            Product-এর সুবিধা, quality, ব্যবহার এবং অন্যান্য
+            গুরুত্বপূর্ণ তথ্য এখানে দিতে পারবেন।
         </p>
-        <button class="page-btn orange" onclick="showPage(3)">
-            Next Page
-        </button>
-    </div>
-</section>
+
+        <div class="price">
+            ৳ 999
+        </div>
+
+    </section>
 
 
-<!-- PAGE 3 -->
-<section id="page3" class="page">
-    <div class="card">
-        <h1 style="color:#b49a00;">Page 3</h1>
-        <p>
-            এটি তৃতীয় পেজ। Yellow rainbow theme.
+    <!-- Message Portal -->
+    <section class="message-box">
+
+        <h2>
+            ✈️ Telegram-এ Message করুন
+        </h2>
+
+        <p class="sub">
+            আপনার নাম এবং প্রশ্ন লিখুন। তারপর নিচের
+            Telegram button-এ চাপুন।
         </p>
-        <button class="page-btn yellow" onclick="showPage(4)">
-            Next Page
-        </button>
-    </div>
-</section>
 
 
-<!-- PAGE 4 -->
-<section id="page4" class="page">
-    <div class="card">
-        <h1 style="color:#00a83b;">Page 4</h1>
-        <p>
-            এটি চতুর্থ পেজ। Green rainbow theme.
-        </p>
-        <button class="page-btn green" onclick="showPage(5)">
-            Next Page
-        </button>
-    </div>
-</section>
+        <!-- Name -->
+        <label for="clientName">
+            আপনার নাম
+        </label>
+
+        <input
+            type="text"
+            id="clientName"
+            placeholder="আপনার নাম লিখুন"
+        >
 
 
-<!-- PAGE 5 -->
-<section id="page5" class="page">
-    <div class="card">
-        <h1 style="color:#0066ff;">Page 5</h1>
-        <p>
-            এটি পঞ্চম পেজ। Blue rainbow theme.
-        </p>
-        <button class="page-btn blue" onclick="showPage(6)">
-            Next Page
-        </button>
-    </div>
-</section>
+        <!-- Message -->
+        <label for="clientMessage">
+            আপনার Message
+        </label>
+
+        <textarea
+            id="clientMessage"
+            placeholder="Product সম্পর্কে কী জানতে চান?"
+        ></textarea>
 
 
-<!-- PAGE 6 -->
-<section id="page6" class="page">
-    <div class="card">
-        <h1 style="color:#4b0082;">Page 6</h1>
-        <p>
-            এটি ষষ্ঠ পেজ। Indigo rainbow theme.
-        </p>
-        <button class="page-btn indigo" onclick="showPage(7)">
-            Next Page
-        </button>
-    </div>
-</section>
+        <!-- Quick Questions -->
+        <div class="quick">
+
+            <div class="quick-title">
+                দ্রুত প্রশ্ন:
+            </div>
+
+            <div class="quick-buttons">
+
+                <button onclick="quickMessage('Product-এর দাম কত?')">
+                    💰 দাম কত?
+                </button>
+
+                <button onclick="quickMessage('Product সম্পর্কে বিস্তারিত জানতে চাই।')">
+                    ℹ️ বিস্তারিত
+                </button>
+
+                <button onclick="quickMessage('Delivery charge কত?')">
+                    🚚 Delivery
+                </button>
+
+                <button onclick="quickMessage('কীভাবে order করব?')">
+                    🛒 Order
+                </button>
+
+            </div>
+
+        </div>
 
 
-<!-- PAGE 7 -->
-<section id="page7" class="page">
-    <div class="card">
-        <h1 style="color:#8b00ff;">Page 7</h1>
-        <p>
-            এটি সপ্তম পেজ। Violet rainbow theme.
-        </p>
-        <button class="page-btn violet" onclick="showPage(1)">
-            Start Again
-        </button>
-    </div>
-</section>
+        <!-- Telegram -->
+        <a
+            href="#"
+            id="telegramButton"
+            class="telegram-btn"
+            onclick="sendTelegram(event)"
+        >
+            ✈️ Telegram-এ Message করুন
+        </a>
+
+    </section>
+
+</main>
 
 
 <footer>
-    🌈 Rainbow 7 Color Website
+    © 2026 Your Business — All Rights Reserved
 </footer>
 
 
 <script>
-function showPage(number){
 
-    document.querySelectorAll(".page").forEach(function(page){
-        page.classList.remove("active");
-    });
+/* ==========================================
+   TELEGRAM SETTINGS
+==========================================
 
-    document.getElementById("page" + number)
-        .classList.add("active");
+   এখানে শুধু তোমার Telegram username বসাও।
 
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
+   Example:
+   const TELEGRAM_USERNAME = "myshop123";
+
+   @ চিহ্ন দেওয়ার দরকার নেই।
+========================================== */
+
+const TELEGRAM_USERNAME = "YOUR_TELEGRAM_USERNAME";
+
+
+/* ==========================================
+   QUICK MESSAGE
+========================================== */
+
+function quickMessage(text){
+
+    document.getElementById("clientMessage").value = text;
+
 }
+
+
+/* ==========================================
+   TELEGRAM BUTTON
+========================================== */
+
+function sendTelegram(event){
+
+    event.preventDefault();
+
+    const name =
+        document.getElementById("clientName")
+        .value
+        .trim();
+
+    const message =
+        document.getElementById("clientMessage")
+        .value
+        .trim();
+
+
+    if(!name){
+
+        alert("দয়া করে আপনার নাম লিখুন।");
+
+        document.getElementById("clientName").focus();
+
+        return;
+    }
+
+
+    if(!message){
+
+        alert("দয়া করে আপনার Message লিখুন।");
+
+        document.getElementById("clientMessage").focus();
+
+        return;
+    }
+
+
+    /*
+      Telegram profile/chat open হবে।
+
+      Browser থেকে সাধারণ Telegram profile link-এ
+      automatically typed message পাঠানো যায় না।
+
+      তাই client-এর message clipboard-এ copy করা হচ্ছে।
+    */
+
+    const finalMessage =
+        "নাম: " + name +
+        "\n\n" +
+        "Message: " + message;
+
+
+    /*
+      Message copy
+    */
+
+    if(navigator.clipboard){
+
+        navigator.clipboard
+        .writeText(finalMessage)
+        .then(function(){
+
+            openTelegram();
+
+        })
+        .catch(function(){
+
+            openTelegram();
+
+        });
+
+    }else{
+
+        openTelegram();
+
+    }
+
+}
+
+
+/* ==========================================
+   OPEN TELEGRAM
+========================================== */
+
+function openTelegram(){
+
+    const telegramURL =
+        "https://t.me/" +
+        TELEGRAM_USERNAME;
+
+    window.open(
+        telegramURL,
+        "_blank"
+    );
+
+}
+
 </script>
 
 </body>
